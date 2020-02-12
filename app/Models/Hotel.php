@@ -14,6 +14,6 @@ class Hotel extends Model
     ];
 
     public function rooms() {
-        return $this->hasMany('App\Models\Room');
+        return $this->hasMany('app\Models\Room');
     }
 }
