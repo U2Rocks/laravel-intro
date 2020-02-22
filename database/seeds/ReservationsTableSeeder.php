@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Reservation;
+use App\Models\Room;
 
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,7 @@ class ReservationsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $reservations =[
             [
                 'user_id' => '1',
@@ -61,5 +63,6 @@ class ReservationsTableSeeder extends Seeder
                 'departure' => $reservation['departure']
             ));
         }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
