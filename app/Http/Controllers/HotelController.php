@@ -14,7 +14,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::table('Hotels')->get();
+        $hotels = Hotel::get();
 
         return view('hotels')->with('hotels', $hotels);
     }
