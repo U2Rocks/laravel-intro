@@ -26,9 +26,9 @@ class HotelController extends Controller
      */
     public function create(Request $request)
     {
-        Route::get('hotelform', function() {
-            return view;
-        });
+        $data = $request->all();
+
+        return view('hotelform');
     }
 
     /**
@@ -39,10 +39,16 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        Hotel::create(['name'=>$request->input('name')], ['address_1'=>$request->input('address_1')],
-            ['address_2'=>$request->input('address_2')], ['city'=>$request->input('city')], ['state'=>$request->input('state')],
-            ['zip'=>$request->input('zip')], ['description'=>$request->input('description')], ['image'=>$request->input('image')]);
-        Redirect::to('/hotels');
+        Hotel::create($request->all(),
+            ['name'=>$request->input('name')],
+            ['address_1'=>$request->input('address_1')],
+            ['address_2'=>$request->input('address_2')],
+            ['city'=>$request->input('city')],
+            ['state'=>$request->input('state')],
+            ['zip'=>$request->input('zip')],
+            ['description'=>$request->input('description')],
+            ['image'=>$request->input('image')]);
+        return redirect()->route('hotels');
     }
 
     /**

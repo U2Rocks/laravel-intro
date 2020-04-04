@@ -15,9 +15,9 @@
 Route::get('/', function(){
     return '/ route';
 });
-Route::get('/hotels', 'HotelController@index');
+Route::get('/hotels', 'HotelController@index')->name('hotels');
 Route::get('/hotels/create', 'HotelController@create');
-Route::post('/hotels/store', 'HotelController@store');
+Route::post('/hotels/store', 'HotelController@store')->name('/hotels/store');
 Route::group(['prefix'=>'reservations'], function() {
     Route::get('/', function () { return 'Showing users homepage'; });
     Route::get('reservations/create/{id}', 'ReservationController@create');
