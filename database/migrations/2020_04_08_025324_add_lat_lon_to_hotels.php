@@ -20,6 +20,10 @@ class AddLatLonToHotels extends Migration
         });
     }
 
+    /*
+     * this is a change to the code
+     */
+
     /**
      * Reverse the migrations.
      *
