@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Hotel;
+use App\Observers\HotelObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Hotel::observe(HotelObserver::class);
     }
 }
